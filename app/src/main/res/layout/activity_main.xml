@@ -103,6 +103,7 @@
         android:layout_height="19dp"
         android:background="@drawable/triangular_shape_background"
         android:text="  MOBİL PİYANO"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -197,6 +198,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ALIŞTIRMALAR"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
@@ -217,7 +219,7 @@
         app:layout_constraintVertical_bias="0.79" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/menuButton"
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:background="#13859D"

@@ -27,5 +27,12 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent (this,MenuActivity::class.java)
             startActivity(intent)
         }
+
+        val button2 =findViewById<ImageButton>(R.id.serbestCalbutton)
+
+        button2.setOnClickListener{
+            val intent= Intent (this,SerbestCalActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

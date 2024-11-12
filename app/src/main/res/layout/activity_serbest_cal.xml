@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B2327F87">
+
+
+    <ImageButton
+        android:id="@+id/kayitlarButton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        android:backgroundTint="#00000000"
+        android:contentDescription="Menü"
+        android:src="@drawable/top_menu" />
+
+    <ImageButton
+        android:id="@+id/back1Button"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_gravity="left"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#00000000"
+        app:srcCompat="@drawable/back_to" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginHorizontal="50dp"
+        android:background="@null"
+        android:backgroundTint="#00000000"
+        app:srcCompat="@drawable/record" />
+
+    <SeekBar
+        android:id="@+id/scrollbar"
+        android:layout_width="731dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="-90dp"
+        android:max="100"
+        android:progressDrawable="@drawable/seekbar"
+        android:thumb="@drawable/seekbar_surukle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="135dp"
+        android:fillViewport="true">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:fillViewport="true"
+            android:isScrollContainer="false"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_margin="0dp">
+
+                    <ImageButton
+                        android:id="@+id/beyazTus1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#00000000"
+                        android:elevation="6dp"
+                        android:paddingBottom="5dp"
+                        android:text="A0"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </FrameLayout>
+
+                <ImageButton
+                    android:id="@+id/siyahTus1"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-23dp">
+
+                    <ImageButton
+                        android:id="@+id/beyazTus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="4dp"
+                        android:text="B0"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-3dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="C1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <ImageButton
+                    android:id="@+id/siyahTus2"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-29dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-23dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+
+                    <ImageButton
+                        android:id="@+id/beyazTus4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="D1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <ImageButton
+                    android:id="@+id/siyahTus3"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-29dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-23dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <ImageButton
+                        android:id="@+id/beyazTus5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="E1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-11dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="F1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <ImageButton
+                    android:id="@+id/siyahTus4"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-29dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-23dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="G1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <ImageButton
+                    android:id="@+id/siyahTus5"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-30dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="A1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <ImageButton
+                    android:id="@+id/siyahTus6"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-30dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <ImageButton
+                        android:id="@+id/beyazTus9"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="B1"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-13dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+
+                    <ImageButton
+                        android:id="@+id/beyazTus10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C2"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <ImageButton
+                    android:id="@+id/siyahTus7"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-30dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton21"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus8"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton22"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton23"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus9"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton24"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus10"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton25"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus11"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton26"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton27"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus12"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton28"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus13"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton29"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton30"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus14"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton31"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus15"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton32"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus16"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton33"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton34"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus17"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton35"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus18"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton36"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton37"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus19"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton38"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus20"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton39"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus21"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton40"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton41"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus22"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton42"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus23"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton43"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton44"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus24"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton45"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus25"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton46"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus26"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton47"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton48"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus27"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton49"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus28"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton50"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton51"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus29"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton52"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus30"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton53"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus31"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton54"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton55"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus32"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton56"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus33"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton57"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton58"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus34"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton59"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus35"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton60"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/siyahTus36"
+                    android:layout_width="40dp"
+                    android:layout_height="138dp"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="0dp"
+                    android:backgroundTint="#00000000"
+                    android:contentDescription="Siyah Tuş"
+                    android:elevation="10dp"
+                    app:srcCompat="@drawable/siyahtus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton61"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:layout_marginStart="-20dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+
+                <ImageButton
+                    android:id="@+id/imageButton62"
+                    android:layout_width="63dp"
+                    android:layout_height="234dp"
+                    android:backgroundTint="#00000000"
+                    android:elevation="6dp"
+                    app:srcCompat="@drawable/piyanotus" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

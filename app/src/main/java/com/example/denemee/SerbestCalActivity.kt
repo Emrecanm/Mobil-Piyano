@@ -35,6 +35,12 @@ class SerbestCalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val button2 = findViewById<ImageButton>(R.id.kayitlarButton)
+        button2.setOnClickListener{
+            val intent = Intent(this, kaydedilen_sarkilar::class.java)
+            startActivity(intent)
+        }
+
         // HorizontalScrollView ve SeekBar referansları
         horizontalScrollView = findViewById(R.id.horizontalScrollView)
         seekBar = findViewById(R.id.scrollbar)

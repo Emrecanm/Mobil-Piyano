@@ -97,19 +97,27 @@
         app:layout_constraintVertical_bias="0.74"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="106dp"
-        android:layout_height="19dp"
+        android:layout_width="160dp"
+        android:layout_height="38dp"
         android:background="@drawable/triangular_shape_background"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="1.5"
         android:text="  MOBİL PİYANO"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.655" />
 
     <TextView
         android:id="@+id/textView2"

@@ -82,7 +82,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/favoriler.button"
+        android:id="@+id/favorilerbutton"
         android:layout_width="80dp"
         android:layout_height="77dp"
         android:background="@drawable/rounded_button_background"

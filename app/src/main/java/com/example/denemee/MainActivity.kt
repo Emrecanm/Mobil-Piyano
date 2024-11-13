@@ -39,5 +39,11 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent (this,SarkiListesi::class.java)
             startActivity(intent)
         }
+        val button4=findViewById<ImageButton>(R.id.favorilerbutton)
+
+        button4.setOnClickListener{
+            val intent =Intent(this,Favoriler::class.java)
+            startActivity(intent)
+        }
     }
 }

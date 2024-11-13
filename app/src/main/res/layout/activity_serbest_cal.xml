@@ -10,20 +10,21 @@
 
     <ImageButton
         android:id="@+id/kayitlarButton"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
         android:background="@null"
         android:backgroundTint="#00000000"
         android:contentDescription="Menü"
-        android:src="@drawable/top_menu" />
+        android:src="@drawable/list" />
 
     <ImageButton
         android:id="@+id/back1Button"
-        android:layout_width="63dp"
-        android:layout_height="54dp"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
         android:layout_gravity="left"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
@@ -33,10 +34,11 @@
 
     <ImageButton
         android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
         android:layout_gravity="right"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="10dp"
         android:background="@null"
         android:backgroundTint="#00000000"
         app:srcCompat="@drawable/record" />
@@ -671,627 +673,1437 @@
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton26"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton27"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="B2"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus17"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C3"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus12"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton28"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus18"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="D3"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus13"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton29"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton30"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus19"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="E3"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-11dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus20"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="F3"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus14"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton31"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus21"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="G3"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus15"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton32"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus22"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Buton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:paddingBottom="8dp"
+                        android:text="A3"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus16"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton33"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton34"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus23"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="B3"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-11dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus24"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus17"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton35"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus25"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="D4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus18"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton36"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton37"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus26"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="E4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus27"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="F4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus19"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton38"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus28"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="G4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus20"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton39"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus29"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="A4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus21"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton40"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton41"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus30"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="B4"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus31"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C5"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus22"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton42"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus32"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus32"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="D5"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus23"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton43"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton44"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus33"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus33"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="E5"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyeazTus34"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyeazTus34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="F5"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:background="#66FFFFFF"
+                        android:elevation="6dp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus24"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton45"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+
+                    <!-- ImageButton Altına Basit Metin Ekleme -->
+                    <ImageButton
+                        android:id="@+id/beyazTus35"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus35"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="G5"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus25"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton46"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus36"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus36"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="A5"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus26"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton47"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton48"
+                    <!-- ImageButton -->
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <ImageButton
+                        android:id="@+id/beyazTus37"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus37"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="B5"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus38"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- TextView (ImageButton altına metin ekleme) -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus38"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus27"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton49"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp"> <!-- Burada MarginEnd'i ekliyorsunuz -->
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus39"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına eklenen metin -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus39"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="D6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus28"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton50"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp"> <!-- FrameLayout'a Margin End ekledik -->
 
-                <ImageButton
-                    android:id="@+id/imageButton51"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus40"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- ImageButton Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="E6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus41"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="F6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus29"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton52"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus42"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus42"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="G6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus30"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton53"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus43"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus43"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="A6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus31"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton54"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton55"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus44"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus44"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="B6"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus45"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus32"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton56"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus46"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus46"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="D7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus33"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton57"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton58"
+                    <!-- ImageButton -->
+
+                    <!-- Altına Metin Ekleme -->
+                    <ImageButton
+                        android:id="@+id/beyazTus47"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus47"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="E7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus48"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus48"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="F7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus34"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton59"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus49"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus49"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="G7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus35"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton60"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus50"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="A7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
 
                 <ImageButton
                     android:id="@+id/siyahTus36"
                     android:layout_width="40dp"
                     android:layout_height="138dp"
                     android:layout_gravity="start|top"
-                    android:layout_marginStart="-20dp"
+                    android:layout_marginStart="-30dp"
                     android:layout_marginTop="0dp"
                     android:backgroundTint="#00000000"
                     android:contentDescription="Siyah Tuş"
                     android:elevation="10dp"
                     app:srcCompat="@drawable/siyahtus" />
 
-                <ImageButton
-                    android:id="@+id/imageButton61"
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:layout_marginStart="-20dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-22dp"
+                    android:layout_marginEnd="8dp">
 
-                <ImageButton
-                    android:id="@+id/imageButton62"
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus51"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus51"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="B7"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
+
+                <FrameLayout
                     android:layout_width="63dp"
                     android:layout_height="234dp"
-                    android:backgroundTint="#00000000"
-                    android:elevation="6dp"
-                    app:srcCompat="@drawable/piyanotus" />
+                    android:layout_marginStart="-12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <!-- ImageButton -->
+                    <ImageButton
+                        android:id="@+id/beyazTus52"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00000000"
+                        android:elevation="6dp"
+                        app:srcCompat="@drawable/piyanotus" />
+
+                    <!-- Altına Metin Ekleme -->
+                    <TextView
+                        android:id="@+id/textInsideBeyazTus52"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="C8"
+                        android:textColor="#000000"
+                        android:elevation="6dp"
+                        android:textSize="14sp"
+                        android:textAlignment="center" />
+                </FrameLayout>
+
             </LinearLayout>
         </HorizontalScrollView>
     </androidx.core.widget.NestedScrollView>

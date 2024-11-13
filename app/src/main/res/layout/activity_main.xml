@@ -65,7 +65,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/sarkiListesi.button"
+        android:id="@+id/sarkiListesibutton"
         android:layout_width="80dp"
         android:layout_height="77dp"
         android:layout_marginStart="25dp"

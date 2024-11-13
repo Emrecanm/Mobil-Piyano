@@ -34,5 +34,10 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent (this,SerbestCalActivity::class.java)
             startActivity(intent)
         }
+        val button3 =findViewById<ImageButton>(R.id.sarkiListesibutton)
+        button3.setOnClickListener{
+            val intent= Intent (this,SarkiListesi::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -45,5 +45,12 @@ class MainActivity : AppCompatActivity() {
             val intent =Intent(this,Favoriler::class.java)
             startActivity(intent)
         }
+
+        val button5=findViewById<ImageButton>(R.id.analizButton)
+
+        button5.setOnClickListener {
+            val intent = Intent(this, ses_analizi::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,23 +19,28 @@ import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlin.concurrent.thread
 
-
 class ses_analizi : AppCompatActivity() {
     private lateinit var frequencyTextView: TextView
+    private lateinit var volumeProgressBar: ProgressBar
     private lateinit var dispatcher: AudioDispatcher
+
+    // Piyano seslerinin frekans aralığı (A0'dan C8'e kadar)
+    private val minFreq = 27.5f   // A0
+    private val maxFreq = 4186f   // C8
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_ses_analizi)
-
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         frequencyTextView = findViewById(R.id.frequencyTextView)
+        volumeProgressBar = findViewById(R.id.volumeProgressBar)
 
         // Mikrofon izninin kontrolü
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -47,6 +53,12 @@ class ses_analizi : AppCompatActivity() {
             )
         } else {
             startFrequencyDetection()
+        }
+
+        val button = findViewById<ImageButton>(R.id.back1Button5)
+        button.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -67,8 +79,13 @@ class ses_analizi : AppCompatActivity() {
                 runOnUiThread {
                     if (pitchInHz > 0) {
                         frequencyTextView.text = "Frequency: %.2f Hz".format(pitchInHz)
+
+                        // ProgressBar değerini frekansa göre ayarla
+                        val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
+                        volumeProgressBar.progress = normalizedValue
                     } else {
                         frequencyTextView.text = "No pitch detected"
+                        volumeProgressBar.progress = 0 // Eğer frekans tespit edilmezse ProgressBar sıfırlanır
                     }
                 }
             }
@@ -93,24 +110,17 @@ class ses_analizi : AppCompatActivity() {
         }
     }
 
+    // Frekansı 27.5 Hz (A0) ile 4186 Hz (C8) arasına normalize ederek ProgressBar için 0-100 aralığına dönüştürme
+    private fun normalizeFrequencyToProgressBar(frequency: Float): Int {
+        // Frekans, minFreq ve maxFreq arasında olup olmadığını kontrol et
+        val normalizedValue = ((frequency - minFreq) / (maxFreq - minFreq) * 100).toInt()
+
+        // Eğer frekans sınırlar dışında ise ProgressBar değerini 0 veya 100 yap
+        return normalizedValue.coerceIn(0, 100)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         dispatcher.stop() // Dispatcher'ı durdur
-
-
-
-
-
-
-
-
-
-
-        val button=findViewById<ImageButton>(R.id.back1Button5)
-
-        button.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

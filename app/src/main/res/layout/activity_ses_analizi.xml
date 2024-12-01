@@ -30,7 +30,6 @@
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
     <!-- Geri Butonu -->
@@ -56,8 +55,6 @@
         android:max="100"
         android:progress="50" />
 
-
-
     <!-- Frekans Metni -->
     <TextView
         android:id="@+id/frequencyTextView"
@@ -69,4 +66,14 @@
         android:textColor="#000"
         android:textSize="24sp" />
 
+    <!-- Ses Dosyası Seçme Butonu -->
+    <ImageButton
+        android:id="@+id/selectFileButton"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:backgroundTint="#00000000"
+        app:srcCompat="@drawable/ic_file_select"
+        android:contentDescription="@string/select_file" />
 </FrameLayout>

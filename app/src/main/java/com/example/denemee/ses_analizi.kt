@@ -109,7 +109,7 @@ class ses_analizi : AppCompatActivity() {
                         volumeProgressBar.progress = normalizedValue
 
                         // Frekansı kaydırılabilir listeye ekle
-                        frequencyListTextView.append("Frequency: %.2f Hz\n".format(pitchInHz))
+                        //frequencyListTextView.append("Frequency: %.2f Hz\n".format(pitchInHz))
 
                         // ScrollView'un sonuna kaydırma işlemi
                         scrollView.post {

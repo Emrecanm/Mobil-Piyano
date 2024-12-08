@@ -2,6 +2,7 @@ package com.example.denemee
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,20 @@ class MenuActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        val button2 = findViewById<Button>(R.id.singInButton)
+
+        button2.setOnClickListener {
+            val intent = Intent(this, sign_in::class.java)
+            startActivity(intent)
+        }
+
+        val button3 = findViewById<Button>(R.id.logInButton)
+
+        button3.setOnClickListener {
+            val intent = Intent(this, log_in::class.java)
             startActivity(intent)
         }
     }

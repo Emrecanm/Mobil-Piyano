@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="loginTitle" type="id" />
+    <item name="emailInput" type="id" />
+    <item name="passwordInput" type="id" />
+    <item name="loginButton" type="id" />
+    <item name="forgotPasswordButton" type="id" />
+    <item name="googleLoginButton" type="id" />
+    <item name="registerTitle" type="id" />
+    <item name="nameInput" type="id" />
+    <item name="surnameInput" type="id" />
+</resources>

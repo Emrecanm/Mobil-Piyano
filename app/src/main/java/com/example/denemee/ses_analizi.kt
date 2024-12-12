@@ -200,7 +200,7 @@ class ses_analizi : AppCompatActivity() {
             // Dosya descriptor'ü null değilse, dosya mevcut demektir
             if (fileDescriptor != null) {
                 val sampleRate = 44100F // Ses örnekleme hızı (44100 Hz, standart)
-                val bufferSize = 1024 // Veri bloğu büyüklüğü (1024 örnek)
+                val bufferSize = 7056 // Veri bloğu büyüklüğü
                 val results = mutableListOf<Pair<Float, Float>>() // Frekans analiz sonuçlarını tutacak liste
 
                 // Ses dosyasını dosya yolu ile açıyoruz

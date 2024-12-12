@@ -26,7 +26,7 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="2"
-            android:text="SES ANALİZİ"
+            android:text="@string/ses_anal_z"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="370dp"
         android:layout_marginTop="110dp"
-        android:text="Frequency: 0 Hz"
+        android:text="@string/frequency_0_hz"
         android:textColor="#000"
         android:textSize="24sp" />
 
@@ -71,37 +71,95 @@
         android:id="@+id/selectFileButton"
         android:layout_width="54dp"
         android:layout_height="50dp"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="center|bottom"
         android:layout_margin="16dp"
         android:backgroundTint="#00000000"
         app:srcCompat="@drawable/ic_file_select"
         android:contentDescription="@string/select_file" />
 
-    <!-- Analiz Başlatma Butonu -->
-    <Button
-        android:id="@+id/startAnalysisButton"
+    <!-- Analiz ve Durdurma Butonları -->
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_marginTop="50dp"
         android:layout_marginBottom="110dp"
-        android:backgroundTint="#66B6BF"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:text="Start Analysis"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/startAnalysisButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#66B6BF"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:text="@string/start_analysis"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/stopAnalysisButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="#6BFF6F61"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:text="@string/stop_analysis"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!-- Dosya Analiz Butonu -->
+    <Button
+        android:id="@+id/startFileAnalysisButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#5CFFA726"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="50dp"
+        android:text="@string/start_file_analysis"
         android:textColor="#000000"
         android:textSize="18sp" />
 
-    <!-- Frekansları Kaydırılabilir Listede Göster -->
+    <!-- Sol ScrollView -->
     <ScrollView
         android:id="@+id/frequencyScrollView"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:background="#90B4B7"
-        android:layout_marginTop="250dp">
+        android:layout_width="245dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="240dp"
+        android:background="#90B4B7">
 
         <TextView
             android:id="@+id/frequencyListTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|start"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:textColor="#000"
+            android:textSize="16sp" />
+    </ScrollView>
+
+    <!-- Sağ ScrollView -->
+    <ScrollView
+        android:id="@+id/frequencyScrollViewRight"
+        android:layout_width="239dp"
+        android:layout_height="127dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="20dp"
+        android:background="#90B4B7">
+
+        <TextView
+            android:id="@+id/frequencyListTextViewRight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top|start"

@@ -9,4 +9,12 @@
     <item name="registerTitle" type="id" />
     <item name="nameInput" type="id" />
     <item name="surnameInput" type="id" />
+    <item name="frequencyTextView" type="id" />
+    <item name="volumeProgressBar" type="id" />
+    <item name="frequencyListTextView" type="id" />
+    <item name="frequencyScrollView" type="id" />
+    <item name="startAnalysisButton" type="id" />
+    <item name="stopAnalysisButton" type="id" />
+    <item name="back1Button5" type="id" />
+    <item name="selectFileButton" type="id" />
 </resources>

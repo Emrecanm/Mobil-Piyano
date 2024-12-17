@@ -1,13 +1,9 @@
 package com.example.denemee
 
 import android.Manifest
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.ScrollView
@@ -21,7 +17,6 @@ import be.tarsos.dsp.AudioDispatcher
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
-import java.io.File
 import kotlin.concurrent.thread
 
 @Suppress("DEPRECATION")
@@ -34,12 +29,37 @@ class ses_analizi : AppCompatActivity() {
     private lateinit var startFileAnalysisButton: Button // Dosya analizi başlatan buton
     private lateinit var frequencyListTextView: TextView // Frekans listesini gösterecek TextView
     private lateinit var scrollView: ScrollView // Frekans listesini kaydırmak için ScrollView
-    private lateinit var frequencyListTextViewRight: TextView // Sağdaki frekans listesini gösterecek TextView
-    private lateinit var scrollViewRight: ScrollView // Sağdaki frekans listesini kaydırmak için ScrollView
 
     private val minFreq = 25f   // A0 notasının frekansı
     private val maxFreq = 4200f   // C8 notasının frekansı
-    private var selectedAudioUri: Uri? = null // Seçilen ses dosyasının URI'si
+
+    // Nota-frekans eşleştirmesi
+    private val noteFrequencies = listOf(
+        Pair("A0", 27.50f), Pair("A#0", 29.14f), Pair("B0", 30.87f),
+        Pair("C1", 32.70f), Pair("C#1", 34.65f), Pair("D1", 36.71f), Pair("D#1", 38.89f),
+        Pair("E1", 41.20f), Pair("F1", 43.65f), Pair("F#1", 46.25f), Pair("G1", 49.00f),
+        Pair("G#1", 51.91f), Pair("A1", 55.00f), Pair("A#1", 58.27f), Pair("B1", 61.74f),
+        Pair("C2", 65.41f), Pair("C#2", 69.30f), Pair("D2", 73.42f), Pair("D#2", 77.78f),
+        Pair("E2", 82.41f), Pair("F2", 87.31f), Pair("F#2", 92.50f), Pair("G2", 98.00f),
+        Pair("G#2", 103.83f), Pair("A2", 110.00f), Pair("A#2", 116.54f), Pair("B2", 123.47f),
+        Pair("C3", 130.81f), Pair("C#3", 138.59f), Pair("D3", 146.83f), Pair("D#3", 155.56f),
+        Pair("E3", 164.81f), Pair("F3", 174.61f), Pair("F#3", 185.00f), Pair("G3", 196.00f),
+        Pair("G#3", 207.65f), Pair("A3", 220.00f), Pair("A#3", 233.08f), Pair("B3", 246.94f),
+        Pair("C4", 261.63f), Pair("C#4", 277.18f), Pair("D4", 293.66f), Pair("D#4", 311.13f),
+        Pair("E4", 329.63f), Pair("F4", 349.23f), Pair("F#4", 369.99f), Pair("G4", 392.00f),
+        Pair("G#4", 415.30f), Pair("A4", 440.00f), Pair("A#4", 466.16f), Pair("B4", 493.88f),
+        Pair("C5", 523.25f), Pair("C#5", 554.37f), Pair("D5", 587.33f), Pair("D#5", 622.25f),
+        Pair("E5", 659.26f), Pair("F5", 698.46f), Pair("F#5", 739.99f), Pair("G5", 783.99f),
+        Pair("G#5", 830.61f), Pair("A5", 880.00f), Pair("A#5", 932.33f), Pair("B5", 987.77f),
+        Pair("C6", 1046.50f), Pair("C#6", 1108.73f), Pair("D6", 1174.66f), Pair("D#6", 1244.51f),
+        Pair("E6", 1318.51f), Pair("F6", 1396.91f), Pair("F#6", 1479.98f), Pair("G6", 1567.98f),
+        Pair("G#6", 1661.22f), Pair("A6", 1760.00f), Pair("A#6", 1864.66f), Pair("B6", 1975.53f),
+        Pair("C7", 2093.00f), Pair("C#7", 2217.46f), Pair("D7", 2349.32f), Pair("D#7", 2489.02f),
+        Pair("E7", 2637.02f), Pair("F7", 2793.83f), Pair("F#7", 2959.96f), Pair("G7", 3135.96f),
+        Pair("G#7", 3322.44f), Pair("A7", 3520.00f), Pair("A#7", 3729.31f), Pair("B7", 3951.07f),
+        Pair("C8", 4186.01f)
+    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,30 +102,20 @@ class ses_analizi : AppCompatActivity() {
         stopAnalysisButton.setOnClickListener {
             stopFrequencyDetection()
         }
+    }
 
-        // Dosya analizi başlatma butonuna tıklama işlemi
-        startFileAnalysisButton.setOnClickListener {
-            if (selectedAudioUri != null) {
-                analyzeAudioFile(selectedAudioUri!!)
-            } else {
-                frequencyTextView.text = "Önce Dosya Seçin!" // Dosya seçilmediyse mesaj
+    // Frekansı notaya dönüştüren fonksiyon
+    private fun getNoteNameFromFrequency(frequency: Float): String {
+        var closestNote = "Bilinmiyor"
+        var smallestDifference = Float.MAX_VALUE
+        for ((note, freq) in noteFrequencies) {
+            val difference = kotlin.math.abs(freq - frequency)
+            if (difference < smallestDifference) {
+                smallestDifference = difference
+                closestNote = note
             }
         }
-
-        // Geri dönme butonuna tıklama işlemi
-        val backButton = findViewById<ImageButton>(R.id.back1Button5)
-        backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-        // Dosya seçme butonuna tıklama işlemi
-        val fileSelectButton = findViewById<ImageButton>(R.id.selectFileButton)
-        fileSelectButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "audio/*" // Ses dosyası seçme
-            startActivityForResult(Intent.createChooser(intent, "Ses Dosyası Seç"), 2)
-        }
+        return closestNote
     }
 
     // Frekans tespitini başlatan fonksiyon
@@ -125,16 +135,17 @@ class ses_analizi : AppCompatActivity() {
                 val pitchInHz = result.pitch // Frekans verisini al
                 runOnUiThread {
                     if (pitchInHz > 0) {
-                        // UI'yi güncelle
-                        frequencyTextView.text = "Frekans: %.2f Hz".format(pitchInHz)
+                        // Frekansı notaya dönüştür
+                        val noteName = getNoteNameFromFrequency(pitchInHz)
+                        frequencyTextView.text = "Nota: $noteName (%.2f Hz)".format(pitchInHz)
                         val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
                         volumeProgressBar.progress = normalizedValue
-                        frequencyListTextView.append("Zaman: %.2f s\n Frekans: %.2f Hz\n\n".format(currentTime, pitchInHz))
+                        frequencyListTextView.append("Zaman: %.2f s\nNota: $noteName (%.2f Hz)\n\n".format(currentTime, pitchInHz))
                         scrollView.post {
                             scrollView.fullScroll(ScrollView.FOCUS_DOWN) // ScrollView kaydırma
                         }
                     } else {
-                        frequencyTextView.text = "Frekans Algılanamadı"
+                        frequencyTextView.text = "Nota Algılanamadı"
                         volumeProgressBar.progress = 0
                     }
                 }
@@ -176,98 +187,4 @@ class ses_analizi : AppCompatActivity() {
         val normalizedValue = ((frequency - minFreq) / (maxFreq - minFreq) * 100).toInt()
         return normalizedValue.coerceIn(0, 100) // Değeri 0-100 arasında kısıtla
     }
-
-    // Dosya seçimi sonucu gelen veriyi işleyen fonksiyon
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 2 && resultCode == RESULT_OK) {
-            selectedAudioUri = data?.data // Seçilen dosyanın URI'sini al
-            if (selectedAudioUri != null) {
-                frequencyTextView.text = "Dosya başarıyla seçildi."
-            } else {
-                frequencyTextView.text = "Dosya seçilemedi."
-            }
-        }
-    }
-
-    // Ses dosyasını analiz eden fonksiyon
-    @SuppressLint("SetTextI18n", "Recycle")
-    private fun analyzeAudioFile(audioUri: Uri) {
-        try {
-            // Ses dosyasını açmak için file descriptor elde edilmesi
-            val fileDescriptor = contentResolver.openFileDescriptor(audioUri, "r")?.fileDescriptor
-
-            // Dosya descriptor'ü null değilse, dosya mevcut demektir
-            if (fileDescriptor != null) {
-                val sampleRate = 44100F // Ses örnekleme hızı (44100 Hz, standart)
-                val bufferSize = 7056 // Veri bloğu büyüklüğü
-                val results = mutableListOf<Pair<Float, Float>>() // Frekans analiz sonuçlarını tutacak liste
-
-                // Ses dosyasını dosya yolu ile açıyoruz
-                val audioFile = File(audioUri.path)
-
-                // Dosya mevcut değilse hata mesajı gösteriliyor
-                if (!audioFile.exists()) {
-                    runOnUiThread {
-                        frequencyTextView.text = "Error: Dosya Bulunamadı!"
-                    }
-                    return
-                }
-
-                // Dosya yolunu alıyoruz
-                val filePath = audioFile.absolutePath
-                // Ses dosyasını analiz etmek için dispatcher oluşturuluyor
-                dispatcher = AudioDispatcherFactory.fromPipe(filePath, sampleRate.toInt(), bufferSize, 0)
-
-                var currentTime = 0f // Geçerli zaman (saniye)
-                val timePerBuffer = bufferSize.toFloat() / sampleRate // Her veri bloğu için geçen süre (saniye)
-
-                // Frekans tespiti için pitchHandler tanımlanıyor
-                val pitchHandler = PitchDetectionHandler { result, _ ->
-                    val pitchInHz = result.pitch // Tespit edilen frekans (Hz cinsinden)
-                    if (pitchInHz > 0) {
-                        // Geçerli frekans pozitifse, sonucu kaydediyoruz
-                        results.add(Pair(currentTime, pitchInHz))
-                        runOnUiThread {
-                            // UI'yi güncelliyoruz: sol ve sağ frekans listesine ekliyoruz
-                            frequencyListTextView.append("Zaman: %.2f s\nFrekans: %.2f Hz\n\n".format(currentTime, pitchInHz))
-                            frequencyListTextViewRight.append("Zaman: %.2f s\n Frekans: %.2f Hz\n\n".format(currentTime, pitchInHz))
-                            // ScrollView'ı kaydırarak son eklenen veriye odaklanıyoruz
-                            scrollViewRight.post {
-                                scrollViewRight.fullScroll(ScrollView.FOCUS_DOWN)
-                            }
-                        }
-                    }
-                    // Geçerli zamanı güncelliyoruz
-                    currentTime += timePerBuffer
-                }
-
-                // PitchProcessor (frekans tespiti işleyicisi) oluşturuluyor
-                val pitchProcessor = PitchProcessor(
-                    PitchProcessor.PitchEstimationAlgorithm.YIN, // YIN algoritması kullanılıyor
-                    sampleRate, // Ses örnekleme hızı
-                    bufferSize, // Veri bloğu büyüklüğü
-                    pitchHandler // Frekans tespiti için handler
-                )
-                // Dispatcher'a pitchProcessor ekleniyor
-                dispatcher.addAudioProcessor(pitchProcessor)
-
-                // Ses verilerini işlemek için dispatcher'ı başlatıyoruz
-                thread(start = true) {
-                    dispatcher.run()
-                }
-            } else {
-                // Dosya açılamıyorsa hata mesajı gösteriliyor
-                runOnUiThread {
-                    frequencyTextView.text = "Error: Dosya Uzantısı Açılamıyor"
-                }
-            }
-        } catch (e: Exception) {
-            // Hata durumunda hata mesajı UI'ye yazdırılıyor
-            runOnUiThread {
-                frequencyTextView.text = "Error: ${e.message}"
-            }
-        }
-    }
-
 }

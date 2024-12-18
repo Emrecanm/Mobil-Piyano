@@ -140,7 +140,7 @@ class ses_analizi : AppCompatActivity() {
                         frequencyTextView.text = "Nota: $noteName (%.2f Hz)".format(pitchInHz)
                         val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
                         volumeProgressBar.progress = normalizedValue
-                        frequencyListTextView.append("Zaman: %.2f s\nNota: $noteName (%.2f Hz)\n\n".format(currentTime, pitchInHz))
+                        frequencyListTextView.append("Zaman: %.2f s\nNota: $noteName\n\n".format(currentTime))
                         scrollView.post {
                             scrollView.fullScroll(ScrollView.FOCUS_DOWN) // ScrollView kaydırma
                         }

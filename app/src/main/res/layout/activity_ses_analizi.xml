@@ -170,4 +170,26 @@
             android:textSize="16sp" />
     </ScrollView>
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:layout_marginBottom="-40dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginLeft="55dp"
+        android:text="Analiz Edilen Notalar:" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|right"
+        android:layout_marginBottom="-40dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginRight="70dp"
+        android:text="İstenilen Notalar:" />
+
 </FrameLayout>

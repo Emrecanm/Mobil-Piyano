@@ -1,6 +1,7 @@
 package com.example.denemee
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
@@ -81,6 +82,11 @@ class ses_analizi : AppCompatActivity() {
         startAnalysisButton = findViewById(R.id.startAnalysisButton)
         stopAnalysisButton = findViewById(R.id.stopAnalysisButton)
         startFileAnalysisButton = findViewById(R.id.startFileAnalysisButton)
+// dosya analizi
+        startFileAnalysisButton.setOnClickListener {
+            selectAudioFile()
+        }
+
 
         // Mikrofon izni kontrolü
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -186,5 +192,13 @@ class ses_analizi : AppCompatActivity() {
     private fun normalizeFrequencyToProgressBar(frequency: Float): Int {
         val normalizedValue = ((frequency - minFreq) / (maxFreq - minFreq) * 100).toInt()
         return normalizedValue.coerceIn(0, 100) // Değeri 0-100 arasında kısıtla
+    }
+
+    private fun selectAudioFile() {
+        println("Dosya seçimi yap")
+        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+            type = "audio/*"
+        }
+        startActivityForResult(intent, 123) // 123 koduyla dosya seçimini başlatıyoruz
     }
 }

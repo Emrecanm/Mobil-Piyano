@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.ScrollView
@@ -30,6 +31,7 @@ class ses_analizi : AppCompatActivity() {
     private lateinit var startFileAnalysisButton: Button // Dosya analizi başlatan buton
     private lateinit var frequencyListTextView: TextView // Frekans listesini gösterecek TextView
     private lateinit var scrollView: ScrollView // Frekans listesini kaydırmak için ScrollView
+    private lateinit var selectFileButton: ImageButton //Dosya seçimi yapmak için buton
 
     private val minFreq = 25f   // A0 notasının frekansı
     private val maxFreq = 4200f   // C8 notasının frekansı
@@ -74,6 +76,13 @@ class ses_analizi : AppCompatActivity() {
             insets
         }
 
+        val button = findViewById<ImageButton>(R.id.back1Button5)
+
+        button.setOnClickListener{
+            val intent= Intent (this,MainActivity::class.java)
+            startActivity(intent)
+        }
+
         // UI bileşenlerinin tanımlanması
         frequencyTextView = findViewById(R.id.frequencyTextView)
         volumeProgressBar = findViewById(R.id.volumeProgressBar)
@@ -82,8 +91,9 @@ class ses_analizi : AppCompatActivity() {
         startAnalysisButton = findViewById(R.id.startAnalysisButton)
         stopAnalysisButton = findViewById(R.id.stopAnalysisButton)
         startFileAnalysisButton = findViewById(R.id.startFileAnalysisButton)
-// dosya analizi
-        startFileAnalysisButton.setOnClickListener {
+        selectFileButton= findViewById(R.id.selectFileButton)
+        // dosya analizi
+        selectFileButton.setOnClickListener {
             selectAudioFile()
         }
 
@@ -137,25 +147,33 @@ class ses_analizi : AppCompatActivity() {
                 sampleRate.toInt(), bufferSize, overlap
             )
 
+            // PitchDetectionHandler, gelen ses verisini analiz eden bir işleyicidir.
             val pitchHandler = PitchDetectionHandler { result, _ ->
+                // `result.pitch` frekans (Hz cinsinden) bilgisini içeren bir özelliktir.
                 val pitchInHz = result.pitch // Frekans verisini al
-                runOnUiThread {
-                    if (pitchInHz > 0) {
-                        // Frekansı notaya dönüştür
+                runOnUiThread { // UI güncellemelerini ana iş parçacığında gerçekleştirmek için kullanılır.
+                    if (pitchInHz > 0) { // Eğer algılanan frekans sıfırdan büyükse (yani ses algılandıysa)
+                        // Algılanan frekansı bir müzik notasına dönüştürmek için `getNoteNameFromFrequency` fonksiyonu çağrılır.
                         val noteName = getNoteNameFromFrequency(pitchInHz)
+                        // Kullanıcıya nota ve frekans bilgisini göstermek için metin güncellenir.
                         frequencyTextView.text = "Nota: $noteName (%.2f Hz)".format(pitchInHz)
+                        // Frekansı bir progress bar'da göstermek için normalize edilmiş bir değere dönüştür.
                         val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
-                        volumeProgressBar.progress = normalizedValue
-                        frequencyListTextView.append("Zaman: %.2f s\nNota: $noteName\n\n".format(currentTime))
+                        volumeProgressBar.progress = normalizedValue // Progress bar değeri güncellenir.
+                        // Frekans ve nota bilgisi bir listeye eklenir, zaman bilgisi ile birlikte gösterilir.
+                        frequencyListTextView.append("⏱️: %.2f saniye\n \uD834\uDD1E : $noteName notası\n••••••••••••••••••••••••••••\n".format(currentTime))
+                        // ScrollView içeriği otomatik olarak en alta kaydırılır.
                         scrollView.post {
-                            scrollView.fullScroll(ScrollView.FOCUS_DOWN) // ScrollView kaydırma
+                            scrollView.fullScroll(ScrollView.FOCUS_DOWN) // ScrollView'ı en alta kaydırır.
                         }
-                    } else {
+                    } else { // Eğer algılanan frekans sıfır ya da negatifse (ses algılanmadıysa)
+                        // Kullanıcıya "Nota Algılanamadı" mesajı gösterilir.
                         frequencyTextView.text = "Nota Algılanamadı"
+                        // Progress bar sıfırlanır.
                         volumeProgressBar.progress = 0
                     }
                 }
-                currentTime += bufferSize.toFloat() / sampleRate // Zamanı güncelle
+            currentTime += bufferSize.toFloat() / sampleRate // Zamanı güncelle
             }
 
             val pitchProcessor = PitchProcessor(

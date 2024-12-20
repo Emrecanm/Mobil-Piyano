@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">denemee</string>
     <string name="select_file">Ses dosyası seç</string>
-    <string name="start_file_analysis">Dosyayı Analiz Et</string>
+    <string name="start_file_analysis">Sesi çözümle</string>
+    <string name="start_file_compare"> Karşılaştır </string>
     <string name="ses_anal_z">SES ANALİZİ</string>
     <string name="frequency_0_hz">Frekans: 0 Hz</string>
     <string name="start_analysis">Analizi Başlat</string>

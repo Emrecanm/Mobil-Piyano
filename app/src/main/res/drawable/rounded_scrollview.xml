@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#AAC6C8"
+        android:endColor="#6FAFB3"
+        android:angle="50" />
+    <corners android:radius="16dp" />
+
+    <stroke
+        android:width="2dp"
+        android:color="#5A5A5A" /> <!-- Çizgi rengi -->
+
+</shape>

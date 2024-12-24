@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Denemee"
         tools:targetApi="31">
         <activity
+            android:name=".giris_sorasi_menu"
+            android:exported="false" />
+        <activity
             android:name=".log_in"
             android:exported="false" />
         <activity
@@ -36,10 +39,12 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".Favoriler"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SarkiListesi"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SerbestCalActivity"
             android:exported="false"
@@ -47,7 +52,7 @@
         <activity
             android:name=".MenuActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

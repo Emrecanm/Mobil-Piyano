@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "291811376986",
+    "project_id": "piyanokullanicilari",
+    "storage_bucket": "piyanokullanicilari.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291811376986:android:26e3a63ce116e5f7c5bd63",
+        "android_client_info": {
+          "package_name": "com.example.denemee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAekcPwuxwWBCAEfw-2v8yaiMOauD0DZc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

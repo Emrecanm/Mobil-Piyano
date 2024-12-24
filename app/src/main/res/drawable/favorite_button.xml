@@ -1,0 +1,7 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Eğer butona basılmışsa (favori durumuna alınmış) dolu yıldız -->
+    <item android:drawable="@drawable/bookmark2" android:state_selected="true"/>
+
+    <!-- Eğer butona basılmamışsa (favori değil) boş yıldız -->
+    <item android:drawable="@drawable/bookmark"/>
+</selector>

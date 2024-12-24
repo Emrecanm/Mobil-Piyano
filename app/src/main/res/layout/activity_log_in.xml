@@ -9,50 +9,19 @@
     tools:context=".log_in">
 
     <TextView
-        android:id="@+id/registerTitle"
+        android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kayıt Ol"
+        android:text="Giriş Yap"
         android:textColor="#3D5AFE"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.32" />
 
-    <EditText
-        android:id="@+id/nameInput"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="16dp"
-        android:hint="Adınız"
-        android:inputType="textPersonName"
-        android:backgroundTint="#3D5AFE"
-        app:layout_constraintTop_toBottomOf="@id/registerTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Soyisim Giriş Alanı -->
-    <EditText
-        android:id="@+id/surnameInput"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="16dp"
-        android:hint="Soyadınız"
-        android:inputType="textPersonName"
-        android:backgroundTint="#3D5AFE"
-        app:layout_constraintTop_toBottomOf="@id/nameInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- E-posta Giriş Alanı -->
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="0dp"
@@ -63,7 +32,7 @@
         android:hint="E-posta Adresiniz"
         android:inputType="textEmailAddress"
         android:backgroundTint="#3D5AFE"
-        app:layout_constraintTop_toBottomOf="@id/surnameInput"
+        app:layout_constraintTop_toBottomOf="@id/loginTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -82,18 +51,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Kayıt Ol Butonu -->
+    <!-- Giriş Yap Butonu -->
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/loginButton"
         android:layout_width="311dp"
         android:layout_height="47dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#3D5AFE"
-        android:text="Kayıt Ol"
+        android:text="Giriş Yap"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+
+    <Button
+        android:id="@+id/forgotPasswordButton"
+        android:layout_width="162dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:text="Şifremi Unuttum"
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+
+    <Button
+        android:id="@+id/googleLoginButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#00DB4437"
+        android:drawableBottom="@drawable/google"
+        android:drawablePadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.332"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <Button
+        android:id="@+id/facebookLoginButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#004267B2"
+        android:drawableBottom="@drawable/facebook"
+        android:drawablePadding="10dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.216" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

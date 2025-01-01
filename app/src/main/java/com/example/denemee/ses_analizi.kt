@@ -20,6 +20,7 @@ import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlin.concurrent.thread
+import android.media.MediaPlayer
 
 @Suppress("DEPRECATION")
 class ses_analizi : AppCompatActivity() {
@@ -28,10 +29,13 @@ class ses_analizi : AppCompatActivity() {
     private lateinit var dispatcher: AudioDispatcher // Ses verilerini işlemek için dispatcher
     private lateinit var startAnalysisButton: Button // Frekans analizini başlatan buton
     private lateinit var stopAnalysisButton: Button // Frekans analizini durduran buton
-    private lateinit var startFileAnalysisButton: Button // Dosya analizi başlatan buton
-    private lateinit var frequencyListTextView: TextView // Frekans listesini gösterecek TextView
+    private lateinit var frequencyListTextView: TextView // Sol Frekans listesini gösterecek TextView
+    private lateinit var frequencyListTextViewRight:TextView // Sağ Frekans listesini gösterecek TextView
     private lateinit var scrollView: ScrollView // Frekans listesini kaydırmak için ScrollView
-    private lateinit var selectFileButton: ImageButton //Dosya seçimi yapmak için buton
+    private lateinit var scrollViewRight: ScrollView // Sağ scrollwiev
+    private lateinit var selectFileButton: ImageButton //Dosya seçimi yapmak için Buton
+    private lateinit var mediaPlayer: MediaPlayer // Global olarak tanımlama
+    private lateinit var startFileCompareButton: Button //Sol scrollView ile sağ scrollviwi karşılaştırmak için Buton
 
     private val minFreq = 25f   // A0 notasının frekansı
     private val maxFreq = 4200f   // C8 notasının frekansı
@@ -87,15 +91,27 @@ class ses_analizi : AppCompatActivity() {
         frequencyTextView = findViewById(R.id.frequencyTextView)
         volumeProgressBar = findViewById(R.id.volumeProgressBar)
         frequencyListTextView = findViewById(R.id.frequencyListTextView)
+        frequencyListTextViewRight=findViewById(R.id.frequencyListTextViewRight)
         scrollView = findViewById(R.id.frequencyScrollView)
+        scrollViewRight=findViewById(R.id.frequencyScrollViewRight)
         startAnalysisButton = findViewById(R.id.startAnalysisButton)
         stopAnalysisButton = findViewById(R.id.stopAnalysisButton)
-        startFileAnalysisButton = findViewById(R.id.startFileAnalysisButton)
         selectFileButton= findViewById(R.id.selectFileButton)
-        // dosya analizi
-        selectFileButton.setOnClickListener {
-            selectAudioFile()
+
+        val selectedSong = intent.getStringExtra("songName")//favorilerden gelen şarkıyı aldık.
+
+        if (selectedSong == "KARGA") {
+            mediaPlayer = MediaPlayer.create(this, R.raw.karga)  // "KARGA" şarkısını çal
+            mediaPlayer.start()
+            // Frekans analizini başlat
+            startFrequencyDetectionSong()
+
+            mediaPlayer.setOnCompletionListener {
+                // Frekans analizini durdur
+                stopFrequencyDetection()
+            }
         }
+
 
 
         // Mikrofon izni kontrolü
@@ -134,46 +150,48 @@ class ses_analizi : AppCompatActivity() {
         return closestNote
     }
 
-    // Frekans tespitini başlatan fonksiyon
-    private fun startFrequencyDetection() {
+    // Son algılanan notayı saklamak için bir değişken
+    private var lastDetectedNote: String? = null
+
+    private fun startFrequencyDetectionSong() {
         val sampleRate = 44100F // Örnekleme hızı
         val bufferSize = 7056 // Buffer boyutu
         val overlap = 0 // Örtüşme oranı
         var currentTime = 0f // Zamanı takip etmek için
 
         try {
-            // Mikrofon verisi almak için dispatcher oluşturuluyor
             dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(
                 sampleRate.toInt(), bufferSize, overlap
             )
 
-            // PitchDetectionHandler, gelen ses verisini analiz eden bir işleyicidir.
             val pitchHandler = PitchDetectionHandler { result, _ ->
-                // `result.pitch` frekans (Hz cinsinden) bilgisini içeren bir özelliktir.
-                val pitchInHz = result.pitch // Frekans verisini al
-                runOnUiThread { // UI güncellemelerini ana iş parçacığında gerçekleştirmek için kullanılır.
-                    if (pitchInHz > 0) { // Eğer algılanan frekans sıfırdan büyükse (yani ses algılandıysa)
-                        // Algılanan frekansı bir müzik notasına dönüştürmek için `getNoteNameFromFrequency` fonksiyonu çağrılır.
+                val pitchInHz = result.pitch
+                runOnUiThread {
+                    if (pitchInHz > 0) {
                         val noteName = getNoteNameFromFrequency(pitchInHz)
-                        // Kullanıcıya nota ve frekans bilgisini göstermek için metin güncellenir.
-                        frequencyTextView.text = "Nota: $noteName (%.2f Hz)".format(pitchInHz)
-                        // Frekansı bir progress bar'da göstermek için normalize edilmiş bir değere dönüştür.
-                        val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
-                        volumeProgressBar.progress = normalizedValue // Progress bar değeri güncellenir.
-                        // Frekans ve nota bilgisi bir listeye eklenir, zaman bilgisi ile birlikte gösterilir.
-                        frequencyListTextView.append("⏱️: %.2f saniye\n \uD834\uDD1E : $noteName notası\n••••••••••••••••••••••••••••\n".format(currentTime))
-                        // ScrollView içeriği otomatik olarak en alta kaydırılır.
-                        scrollView.post {
-                            scrollView.fullScroll(ScrollView.FOCUS_DOWN) // ScrollView'ı en alta kaydırır.
+
+                        // Eğer yeni nota, son algılanan notadan farklıysa
+                        if (noteName != lastDetectedNote) {
+                            lastDetectedNote = noteName // Son algılanan notayı güncelle
+                            frequencyTextView.text = "Nota: $noteName (%.2f Hz)".format(pitchInHz)
+                            val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
+                            volumeProgressBar.progress = normalizedValue
+                            frequencyListTextViewRight.append(
+                                "⏱️: %.2f saniye\n \uD834\uDD1E : $noteName notası\n••••••••••••••••••••••••••••\n"
+                                    .format(currentTime)
+                            )
+                            scrollViewRight.post {
+                                scrollViewRight.fullScroll(ScrollView.FOCUS_DOWN)
+                            }
                         }
-                    } else { // Eğer algılanan frekans sıfır ya da negatifse (ses algılanmadıysa)
-                        // Kullanıcıya "Nota Algılanamadı" mesajı gösterilir.
+                    } else {
+                        // Eğer nota algılanmazsa son notayı sıfırla
+                        lastDetectedNote = null
                         frequencyTextView.text = "Nota Algılanamadı"
-                        // Progress bar sıfırlanır.
                         volumeProgressBar.progress = 0
                     }
                 }
-            currentTime += bufferSize.toFloat() / sampleRate // Zamanı güncelle
+                currentTime += bufferSize.toFloat() / sampleRate
             }
 
             val pitchProcessor = PitchProcessor(
@@ -184,16 +202,128 @@ class ses_analizi : AppCompatActivity() {
             )
             dispatcher.addAudioProcessor(pitchProcessor)
 
-            // Ses verilerini işlemek için dispatcher'ı başlat
             thread(start = true) {
                 dispatcher.run()
             }
         } catch (e: Exception) {
             runOnUiThread {
-                frequencyTextView.text = "Error: ${e.message}" // Hata mesajı
+                frequencyTextView.text = "Error: ${e.message}"
             }
         }
     }
+
+
+
+    private fun startFrequencyDetection() {
+        val sampleRate = 44100F // Örnekleme hızı
+        val bufferSize = 7056 // Buffer boyutu
+        val overlap = 0 // Örtüşme oranı
+        var currentTime = 0f // Zamanı takip etmek için
+        var lastDetectedNote: String? = null // En son algılanan nota
+        var analysisDuration = 0f // Analizin ne kadar süreceğini belirleyen değişken
+        var isAnalysisCompleted = false // Analizin tamamlanıp tamamlanmadığını takip etmek için
+
+        // FrequencyListTextViewRight içeriğini kontrol et
+        val scrollViewContent = frequencyListTextViewRight.text.toString()
+        if (scrollViewContent.isNotEmpty()) {
+            // Son girdinin süresini bul
+            val lastEntry = scrollViewContent.split("\n").lastOrNull()
+
+            lastEntry?.let {
+                val match = Regex("⏱️: (\\d+\\.\\d+) saniye").find(it)
+                if (match != null) {
+                    try {
+                        analysisDuration = match.groupValues[1].toFloat()
+                    } catch (e: NumberFormatException) {
+                    }
+                }
+            }
+        }
+
+        // Eğer süre 0 ise, en son girilen süreyi kullan
+        if (analysisDuration <= 0) {
+            val allEntries = scrollViewContent.split("\n").filter { it.contains("⏱️:") }
+            if (allEntries.isNotEmpty()) {
+                val lastDurationEntry = allEntries.last()
+                val match = Regex("⏱️: (\\d+\\.\\d+) saniye").find(lastDurationEntry)
+                if (match != null) {
+                    try {
+                        analysisDuration = match.groupValues[1].toFloat()
+                    } catch (e: NumberFormatException) {
+                    }
+                }
+            }
+        }
+
+        // Eğer hala geçerli bir süre yoksa, varsayılan süreyi kullan
+        if (analysisDuration <= 0) {
+            analysisDuration = 99999f // Varsayılan 99999 saniye
+        }
+
+        try {
+            // Dispatcher'ı başlat
+            dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(
+                sampleRate.toInt(), bufferSize, overlap
+            )
+
+            val pitchHandler = PitchDetectionHandler { result, _ ->
+                val pitchInHz = result.pitch
+                runOnUiThread {
+                    // Eğer süre dolmuşsa analizi durdur
+                    if (!isAnalysisCompleted && currentTime >= analysisDuration) {
+                        isAnalysisCompleted = true
+                        dispatcher.stop() // Dispatcher'ı durdur
+                        frequencyTextView.text = "Analiz tamamlandı."
+                        return@runOnUiThread
+                    }
+
+                    if (pitchInHz > 0) {
+                        val noteName = getNoteNameFromFrequency(pitchInHz)
+
+                        // Eğer yeni nota, son algılanan notadan farklıysa
+                        if (noteName != lastDetectedNote) {
+                            lastDetectedNote = noteName // Son algılanan notayı güncelle
+                            frequencyTextView.text = "Nota: $noteName (%.2f Hz)".format(pitchInHz)
+                            val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
+                            volumeProgressBar.progress = normalizedValue
+                            frequencyListTextView.append(
+                                "⏱️: %.2f saniye\n \uD834\uDD1E : $noteName notası\n••••••••••••••••••••••••••••\n"
+                                    .format(currentTime)
+                            )
+                            scrollView.post {
+                                scrollView.fullScroll(ScrollView.FOCUS_DOWN)
+                            }
+                        }
+                    } else {
+                        // Eğer nota algılanmazsa son notayı sıfırla
+                        frequencyTextView.text = "Nota Algılanamadı"
+                        volumeProgressBar.progress = 0
+                        lastDetectedNote = null
+                    }
+                }
+                // Zamanı güncelle
+                currentTime += bufferSize.toFloat() / sampleRate
+            }
+
+            val pitchProcessor = PitchProcessor(
+                PitchProcessor.PitchEstimationAlgorithm.YIN,
+                sampleRate,
+                bufferSize,
+                pitchHandler
+            )
+            dispatcher.addAudioProcessor(pitchProcessor)
+
+            // Dispatcher'ı çalıştır
+            thread(start = true) {
+                dispatcher.run()
+            }
+        } catch (e: Exception) {
+            runOnUiThread {
+                frequencyTextView.text = "Error: ${e.message}"
+            }
+        }
+    }
+
 
     // Frekans tespitini durduran fonksiyon
     private fun stopFrequencyDetection() {
@@ -210,13 +340,5 @@ class ses_analizi : AppCompatActivity() {
     private fun normalizeFrequencyToProgressBar(frequency: Float): Int {
         val normalizedValue = ((frequency - minFreq) / (maxFreq - minFreq) * 100).toInt()
         return normalizedValue.coerceIn(0, 100) // Değeri 0-100 arasında kısıtla
-    }
-
-    private fun selectAudioFile() {
-        println("Dosya seçimi yap")
-        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
-            type = "audio/*"
-        }
-        startActivityForResult(intent, 123) // 123 koduyla dosya seçimini başlatıyoruz
     }
 }

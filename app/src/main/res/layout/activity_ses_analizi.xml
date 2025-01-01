@@ -66,17 +66,16 @@
         android:textColor="#000"
         android:textSize="24sp" />
 
-    <!-- Ses Dosyası Seçme Butonu -->
+    <!-- Analiz ve Durdurma Butonları -->
     <ImageButton
         android:id="@+id/selectFileButton"
         android:layout_width="54dp"
         android:layout_height="50dp"
         android:layout_gravity="center|bottom"
         android:backgroundTint="#00000000"
-        app:srcCompat="@drawable/ic_file_select"
-        android:contentDescription="@string/select_file" />
+        android:contentDescription="@string/select_file"
+        app:srcCompat="@drawable/ic_file_select" />
 
-    <!-- Analiz ve Durdurma Butonları -->
     <LinearLayout
         style="?android:attr/buttonBarStyle"
         android:layout_width="wrap_content"
@@ -117,24 +116,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#5CFFA726"
         android:paddingStart="25dp"
         android:paddingEnd="25dp"
         android:text="@string/start_file_compare"
-        android:textColor="#000000"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/startFileAnalysisButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="35dp"
-        android:backgroundTint="#721E90FF"
-        android:paddingStart="25dp"
-        android:paddingEnd="25dp"
-        android:text="@string/start_file_analysis"
         android:textColor="#000000"
         android:textSize="18sp" />
 

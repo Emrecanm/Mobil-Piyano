@@ -7,13 +7,13 @@
     android:background="#5BC8CD"
     android:orientation="vertical">
 
-    <!-- Üst üste gelecek öğeler için FrameLayout kullanıyoruz -->
+    <!-- Üst Başlık -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="76dp"
         android:layout_marginTop="0dp">
 
-        <!-- Arka plandaki TextView -->
+        <!-- Şarkı Listesi Başlığı -->
         <TextView
             android:id="@+id/textView15"
             android:layout_width="match_parent"
@@ -30,6 +30,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <!-- Geri Butonu -->
         <ImageButton
             android:id="@+id/back1Button3"
             android:layout_width="55dp"
@@ -38,8 +39,22 @@
             android:layout_margin="5dp"
             android:background="#00000000"
             app:srcCompat="@drawable/back_to" />
-
-
     </FrameLayout>
+
+    <!-- Ayrım Çizgisi -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Şarkı Listesi RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSongs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
 
 </LinearLayout>

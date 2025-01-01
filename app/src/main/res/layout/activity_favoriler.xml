@@ -38,8 +38,11 @@
             android:layout_margin="5dp"
             android:background="#00000000"
             app:srcCompat="@drawable/back_to" />
-
-
     </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSongs2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

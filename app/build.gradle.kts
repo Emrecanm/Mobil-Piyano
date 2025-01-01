@@ -53,4 +53,6 @@ dependencies {
     implementation ("com.google.firebase:firebase-auth:23.1.0")
     implementation ("com.google.android.gms:play-services-auth:21.3.0")
     implementation ("com.google.firebase:firebase-auth-ktx:23.1.0")
+    implementation ("com.github.wendykierp:JTransforms:3.1")
+
 }

@@ -1,6 +1,7 @@
 package com.example.denemee
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -36,6 +37,8 @@ class ses_analizi : AppCompatActivity() {
     private lateinit var selectFileButton: ImageButton //Dosya seçimi yapmak için Buton
     private lateinit var mediaPlayer: MediaPlayer // Global olarak tanımlama
     private lateinit var startFileCompareButton: Button //Sol scrollView ile sağ scrollviwi karşılaştırmak için Buton
+    private lateinit var insertNota: ImageButton //Otomatik scrollView i doldurma
+    private lateinit var icerigiKaydet: ImageButton //analiz edilen verileri kaydetmek için kullanılacak
 
     private val minFreq = 25f   // A0 notasının frekansı
     private val maxFreq = 4200f   // C8 notasının frekansı
@@ -68,10 +71,18 @@ class ses_analizi : AppCompatActivity() {
     )
 
 
+    @SuppressLint("CutPasteId", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // Uygulama kenarından kenara görünüm
         setContentView(R.layout.activity_ses_analizi)
+
+        // Geri butonunu bulma ve tıklama olayı
+        val backButton = findViewById<ImageButton>(R.id.back1Button2)
+        backButton?.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         // Sistem çubuğunun görünümünü düzenleyen kod
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -80,29 +91,35 @@ class ses_analizi : AppCompatActivity() {
             insets
         }
 
-        val button = findViewById<ImageButton>(R.id.back1Button5)
-
-        button.setOnClickListener{
-            val intent= Intent (this,MainActivity::class.java)
-            startActivity(intent)
-        }
-
         // UI bileşenlerinin tanımlanması
         frequencyTextView = findViewById(R.id.frequencyTextView)
         volumeProgressBar = findViewById(R.id.volumeProgressBar)
         frequencyListTextView = findViewById(R.id.frequencyListTextView)
         frequencyListTextViewRight=findViewById(R.id.frequencyListTextViewRight)
+        startFileCompareButton = findViewById(R.id.startFileCompareButton)
         scrollView = findViewById(R.id.frequencyScrollView)
         scrollViewRight=findViewById(R.id.frequencyScrollViewRight)
         startAnalysisButton = findViewById(R.id.startAnalysisButton)
         stopAnalysisButton = findViewById(R.id.stopAnalysisButton)
         selectFileButton= findViewById(R.id.selectFileButton)
+        insertNota=findViewById(R.id.insertNota)
+        icerigiKaydet=findViewById(R.id.icerigiKaydet)
 
-        val selectedSong = intent.getStringExtra("songName")//favorilerden gelen şarkıyı aldık.
+        val selectedSong = intent.getStringExtra("songName") // Favorilerden gelen şarkıyı aldık.
 
-        if (selectedSong == "KARGA") {
-            mediaPlayer = MediaPlayer.create(this, R.raw.karga)  // "KARGA" şarkısını çal
+// Şarkıya göre medya kaynağını belirleyin
+        val mediaResId = when (selectedSong) {
+            "KARGA" -> R.raw.karga
+            "KARGA2" -> R.raw.kargahatali
+            "KARGA3" -> R.raw.kargahatali2
+            else -> null
+        }
+
+        if (mediaResId != null) {
+            // MediaPlayer ile seçilen şarkıyı çal
+            mediaPlayer = MediaPlayer.create(this, mediaResId)
             mediaPlayer.start()
+
             // Frekans analizini başlat
             startFrequencyDetectionSong()
 
@@ -110,6 +127,31 @@ class ses_analizi : AppCompatActivity() {
                 // Frekans analizini durdur
                 stopFrequencyDetection()
             }
+        }
+
+        icerigiKaydet.setOnClickListener{
+            //BURAYA SCROLLVİEWLERİN İÇERİKLERİNİ KADEDECEK
+        }
+
+        //Önceden hazırlanmış notaları çağırığ direk yazdırma.
+        insertNota.setOnClickListener{
+            //BURAYA ÖNCEDEN KAYDETTİĞİN İÇERİĞİ YAZDIRACAK
+        }
+
+        startFileCompareButton.setOnClickListener {
+            // ScrollView ve ScrollViewRight içeriklerini al
+            val scrollViewText = findViewById<TextView>(R.id.frequencyListTextView)
+            val scrollViewRightText = findViewById<TextView>(R.id.frequencyListTextViewRight)
+
+            val leftContent = scrollViewText.text.toString()
+            val rightContent = scrollViewRightText.text.toString()
+
+            // Verileri yeni aktiviteye gönder
+            val intent = Intent(this, activity_comparison_result::class.java).apply {
+                putExtra("leftContent", leftContent)
+                putExtra("rightContent", rightContent)
+            }
+            startActivity(intent)
         }
 
 
@@ -177,8 +219,7 @@ class ses_analizi : AppCompatActivity() {
                             val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
                             volumeProgressBar.progress = normalizedValue
                             frequencyListTextViewRight.append(
-                                "⏱️: %.2f saniye\n \uD834\uDD1E : $noteName notası\n••••••••••••••••••••••••••••\n"
-                                    .format(currentTime)
+                                "⏱️: %.2f saniye\n \uD834\uDD1E : $noteName (%.2f Hz) notası\n••••••••••••••••••••••••••••\n".format(currentTime,pitchInHz)
                             )
                             scrollViewRight.post {
                                 scrollViewRight.fullScroll(ScrollView.FOCUS_DOWN)
@@ -287,8 +328,7 @@ class ses_analizi : AppCompatActivity() {
                             val normalizedValue = normalizeFrequencyToProgressBar(pitchInHz)
                             volumeProgressBar.progress = normalizedValue
                             frequencyListTextView.append(
-                                "⏱️: %.2f saniye\n \uD834\uDD1E : $noteName notası\n••••••••••••••••••••••••••••\n"
-                                    .format(currentTime)
+                                "⏱️: %.2f saniye\n \uD834\uDD1E : $noteName (%.2f Hz) notası\n••••••••••••••••••••••••••••\n".format(currentTime,pitchInHz)
                             )
                             scrollView.post {
                                 scrollView.fullScroll(ScrollView.FOCUS_DOWN)

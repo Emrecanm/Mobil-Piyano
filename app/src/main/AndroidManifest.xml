@@ -22,15 +22,19 @@
         tools:targetApi="31" >
         <activity
             android:name=".activity_comparison_result"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".giris_sorasi_menu"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".log_in"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".sign_in"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ses_analizi"

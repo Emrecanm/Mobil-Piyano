@@ -22,6 +22,8 @@ import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlin.concurrent.thread
 import android.media.MediaPlayer
+import android.widget.Toast
+import java.io.File
 
 @Suppress("DEPRECATION")
 class ses_analizi : AppCompatActivity() {
@@ -114,29 +116,62 @@ class ses_analizi : AppCompatActivity() {
             "KARGA3" -> R.raw.kargahatali2
             else -> null
         }
+        val fileName = "$selectedSong.txt"
+        val file = File(filesDir, fileName)
 
-        if (mediaResId != null) {
-            // MediaPlayer ile seçilen şarkıyı çal
-            mediaPlayer = MediaPlayer.create(this, mediaResId)
-            mediaPlayer.start()
+        if (!file.exists()) {
+            if (mediaResId != null) {
+                // MediaPlayer ile seçilen şarkıyı çal
+                mediaPlayer = MediaPlayer.create(this, mediaResId)
+                mediaPlayer.start()
 
-            // Frekans analizini başlat
-            startFrequencyDetectionSong()
+                // Frekans analizini başlat
+                startFrequencyDetectionSong()
 
-            mediaPlayer.setOnCompletionListener {
-                // Frekans analizini durdur
-                stopFrequencyDetection()
+                mediaPlayer.setOnCompletionListener {
+                    // Frekans analizini durdur
+                    stopFrequencyDetection()
+                }
+            } else {
+                Toast.makeText(this, "Geçersiz şarkı seçimi.", Toast.LENGTH_SHORT).show()
             }
+        } else {
+            // Eğer kayıt dosyası varsa kullanıcıya bilgi ver
+            Toast.makeText(this, "Bu şarkı için kayıt mevcut. Medya oynatılmıyor.", Toast.LENGTH_SHORT).show()
         }
 
         icerigiKaydet.setOnClickListener{
             //BURAYA SCROLLVİEWLERİN İÇERİKLERİNİ KADEDECEK
+           val frequencyScrollView=findViewById<ScrollView>(R.id.frequencyScrollView)
+            val frequencyListTextViewRight = findViewById<TextView>(R.id.frequencyListTextViewRight)
+
+            val content = frequencyListTextViewRight.text.toString()
+            val fileName = "$selectedSong.txt"
+            val file = File(filesDir, fileName)
+
+            try {
+                file.writeText(content)
+                Toast.makeText(this, "İçerik başarıyla kaydedildi.", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this, "İçerik kaydedilemedi: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
 
         //Önceden hazırlanmış notaları çağırığ direk yazdırma.
         insertNota.setOnClickListener{
-            //BURAYA ÖNCEDEN KAYDETTİĞİN İÇERİĞİ YAZDIRACAK
-        }
+            val frequencyListTextViewRight = findViewById<TextView>(R.id.frequencyListTextViewRight)
+
+            val fileName = "$selectedSong.txt"
+            val file = File(filesDir, fileName)
+
+            if (file.exists()) {
+                // Dosya içeriğini oku ve frequencyScrollView'a yazdır
+                val content = file.readText()
+                frequencyListTextViewRight.text = content
+            } else {
+                // Hata mesajı göster
+                Toast.makeText(this, "Dosya bulunamadı. Lütfen kayıt edin.", Toast.LENGTH_SHORT).show()
+            }        }
 
         startFileCompareButton.setOnClickListener {
             // ScrollView ve ScrollViewRight içeriklerini al

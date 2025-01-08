@@ -68,7 +68,7 @@
 
     <!-- Analiz ve Durdurma Butonları -->
     <ImageButton
-        android:id="@+id/selectFileButton"
+        android:id="@+id/btn_select_song"
         android:layout_width="54dp"
         android:layout_height="50dp"
         android:layout_gravity="center|bottom"

@@ -2,6 +2,7 @@ package com.example.denemee
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -22,6 +23,8 @@ import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
 import kotlin.concurrent.thread
 import android.media.MediaPlayer
+import android.net.Uri
+import android.provider.MediaStore
 import android.widget.Toast
 import java.io.File
 
@@ -41,6 +44,7 @@ class ses_analizi : AppCompatActivity() {
     private lateinit var startFileCompareButton: Button //Sol scrollView ile sağ scrollviwi karşılaştırmak için Buton
     private lateinit var insertNota: ImageButton //Otomatik scrollView i doldurma
     private lateinit var icerigiKaydet: ImageButton //analiz edilen verileri kaydetmek için kullanılacak
+    val REQUEST_CODE_PICK_SONG = 1
 
     private val minFreq = 25f   // A0 notasının frekansı
     private val maxFreq = 4200f   // C8 notasının frekansı
@@ -71,14 +75,45 @@ class ses_analizi : AppCompatActivity() {
         Pair("G#7", 3322.44f), Pair("A7", 3520.00f), Pair("A#7", 3729.31f), Pair("B7", 3951.07f),
         Pair("C8", 4186.01f)
     )
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_PICK_SONG && resultCode == Activity.RESULT_OK) {
+            data?.data?.let { songUri ->
+                val songName = getSongName(songUri)
+                val intent = Intent(this, SarkiListesi::class.java)
+                intent.putExtra("SONG_NAME", songName)
+                intent.putExtra("SONG_URI", songUri.toString())
+                startActivity(intent)
+            }
+        }
+    }
+
+    private fun getSongName(songUri: Uri): String {
+        val cursor = contentResolver.query(songUri, null, null, null, null)
+        cursor?.moveToFirst()
+        val songTitleIndex = cursor?.getColumnIndex(MediaStore.Audio.Media.TITLE)
+        val songTitle = if (songTitleIndex != null && songTitleIndex != -1) {
+            cursor.getString(songTitleIndex)
+        } else {
+            "Şarkı Adı Bulunamadı"
+        }
+        cursor?.close()
+        return songTitle
+    }
 
 
     @SuppressLint("CutPasteId", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // Uygulama kenarından kenara görünüm
         setContentView(R.layout.activity_ses_analizi)
-
+      val  btnSelectSong = findViewById<ImageButton>(R.id.btn_select_song)
+        btnSelectSong.setOnClickListener {
+            // Şarkı seçmek için dosya seçici açma
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, REQUEST_CODE_PICK_SONG)
+        }
         // Geri butonunu bulma ve tıklama olayı
         val backButton = findViewById<ImageButton>(R.id.back1Button2)
         backButton?.setOnClickListener {
@@ -103,7 +138,6 @@ class ses_analizi : AppCompatActivity() {
         scrollViewRight=findViewById(R.id.frequencyScrollViewRight)
         startAnalysisButton = findViewById(R.id.startAnalysisButton)
         stopAnalysisButton = findViewById(R.id.stopAnalysisButton)
-        selectFileButton= findViewById(R.id.selectFileButton)
         insertNota=findViewById(R.id.insertNota)
         icerigiKaydet=findViewById(R.id.icerigiKaydet)
 

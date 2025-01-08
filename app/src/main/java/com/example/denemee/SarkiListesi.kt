@@ -11,16 +11,55 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.media.MediaPlayer
+import android.net.Uri
+import android.widget.Button
+import android.widget.TextView
+import java.io.IOException
 
 class SarkiListesi : AppCompatActivity() {
 
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var favoriteSongs: MutableList<String>
+    private var mediaPlayer1: MediaPlayer? = null
+    private var songUri: Uri? = null
+    var dosyaadi="dosya"
+
+    private fun playSong(uri: Uri) {
+        val mediaPlayer = MediaPlayer()
+        try {
+            mediaPlayer.setDataSource(this, uri)
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+            val intent = Intent(this, ses_analizi::class.java)
+            intent.putExtra("songName", dosyaadi)
+            startActivity(intent)
+        } catch (e: IOException) {
+            // Hata durumunda kullanıcıya bildirim
+            Toast.makeText(this, "Şarkı çalınamadı: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sarki_listesi)
+        val vSongName = findViewById<TextView>(R.id.tv_song_name)
+        val btnPlaySong = findViewById<Button>(R.id.btn_play_song)
+        val songName = intent.getStringExtra("SONG_NAME") ?: "Eklenen şarkı yok"
+        val uriString = intent.getStringExtra("SONG_URI") ?: "content://media/external/audio/media/1" // Fallback URI
+       val  tvSongName = findViewById<TextView>(R.id.tv_song_name)
+       var varbtnPlaySong = findViewById<Button>(R.id.btn_play_song)
+        val songUri = Uri.parse(uriString) // Geçerli bir URI olduğunda bunu parse et
+
+        tvSongName.text = songName
+        dosyaadi=songName
+        btnPlaySong.setOnClickListener {
+            playSong(songUri)
+        }
+
+
 
         // WindowInsets ayarları
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

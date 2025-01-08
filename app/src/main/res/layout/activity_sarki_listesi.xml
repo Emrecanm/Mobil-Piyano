@@ -13,6 +13,7 @@
         android:layout_height="76dp"
         android:layout_marginTop="0dp">
 
+
         <!-- Şarkı Listesi Başlığı -->
         <TextView
             android:id="@+id/textView15"
@@ -48,13 +49,41 @@
         android:background="#FFFFFF"
         android:layout_marginBottom="8dp" />
 
+    <TextView
+        android:id="@+id/UstBaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Şarkılarımız"
+        android:textColor="#090909"
+        android:textSize="20sp"
+        android:textStyle="bold" />
     <!-- Şarkı Listesi RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSongs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
+        android:layout_height="367dp"
         android:clipToPadding="false"
+        android:padding="8dp"
         android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/ekran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kullanının Eklediği Şarkılar"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tv_song_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Şarkı Adı"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btn_play_song"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Şarkıyı Çal" />
 
 </LinearLayout>
